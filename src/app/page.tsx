@@ -1,103 +1,145 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white text-gray-800">
+      {/* 🧭 Navbar */}
+      <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
+        <h1 className="text-2xl font-extrabold text-orange-500">Happy Tails 🐾</h1>
+        <ul className="hidden md:flex gap-6 text-gray-600">
+          <li><a href="#home" className="hover:text-orange-500">Home</a></li>
+          <li><a href="#shop" className="hover:text-orange-500">Shop</a></li>
+          <li><a href="#testimonials" className="hover:text-orange-500">Reviews</a></li>
+          <li><a href="#contact" className="hover:text-orange-500">Contact</a></li>
+        </ul>
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-full transition text-sm">
+          🛒 Shop Now
+        </button>
+      </nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* 🏠 Hero Section */}
+      <section id="home" className="flex flex-col items-center justify-center text-center py-20 px-6">
+        <h1 className="text-5xl font-extrabold text-orange-500 mb-4">
+          Welcome to Happy Tails 🐶
+        </h1>
+        <p className="max-w-2xl text-lg text-gray-600 mb-8">
+          Bringing love, joy, and wagging tails to your home! Explore our shop for
+          adorable pets and their favorite goodies.
+        </p>
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full text-lg transition">
+          🛍️ Shop Now
+        </button>
+        <div className="mt-12 relative w-full max-w-4xl aspect-video">
+          <Image
+            src="/pets-hero.jpg"
+            alt="Happy pets"
+            fill
+            className="object-cover rounded-2xl shadow-lg"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* 🐕 Featured Pets / Products */}
+      <section id="shop" className="py-20 px-6 bg-white text-center">
+        <h2 className="text-4xl font-bold text-orange-500 mb-10">
+          Featured Pets & Products
+        </h2>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          {[
+            { name: "Golden Retriever", img: "/golden.jpg", price: "₱25,000" },
+            { name: "Persian Cat", img: "/persian.jpg", price: "₱18,000" },
+            { name: "Pet Bed Deluxe", img: "/pet-bed.jpg", price: "₱1,200" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="bg-orange-50 rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+            >
+              <div className="relative h-56 w-full">
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">{item.name}</h3>
+                <p className="text-orange-600 font-medium">{item.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 💬 Testimonials */}
+      <section id="testimonials" className="py-20 px-6 bg-orange-50 text-center">
+        <h2 className="text-4xl font-bold text-orange-500 mb-10">
+          What Our Customers Say 💬
+        </h2>
+        <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+          {[
+            {
+              name: "Anna R.",
+              text: "My puppy loves everything from Happy Tails! Great service and quality.",
+            },
+            {
+              name: "Mark D.",
+              text: "Adopted my cat here — the team was so kind and helpful. Highly recommend!",
+            },
+            {
+              name: "Joyce P.",
+              text: "Fast delivery and super cute packaging. My pets are happy, and so am I!",
+            },
+          ].map((t, i) => (
+            <div
+              key={i}
+              className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition"
+            >
+              <p className="text-gray-600 mb-4">“{t.text}”</p>
+              <h4 className="font-semibold text-orange-600">— {t.name}</h4>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 📞 Contact / Visit Us */}
+      <section id="contact" className="py-20 px-6 text-center bg-white">
+        <h2 className="text-4xl font-bold text-orange-500 mb-8">Visit Us 🏡</h2>
+        <p className="text-gray-600 mb-6">
+          Come meet our furry friends or send us a message below!
+        </p>
+        <div className="max-w-md mx-auto text-left bg-orange-50 p-8 rounded-2xl shadow-md">
+          <form className="flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="border rounded-lg p-3 outline-orange-400"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="border rounded-lg p-3 outline-orange-400"
+            />
+            <textarea
+              placeholder="Your Message"
+              rows={4}
+              className="border rounded-lg p-3 outline-orange-400"
+            ></textarea>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full transition">
+              Send Message
+            </button>
+          </form>
+        </div>
+        <p className="mt-6 text-gray-500">📍 123 Pet Street, Quezon City</p>
+        <p className="text-gray-500">📞 0912 345 6789</p>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-gray-500 bg-orange-100">
+        © {new Date().getFullYear()} Happy Tails. All rights reserved.
       </footer>
-    </div>
+    </main>
   );
 }
