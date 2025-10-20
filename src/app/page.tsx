@@ -1,145 +1,143 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-export default function Home() {
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/pets", label: "Pets" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white text-gray-800">
-      {/* 🧭 Navbar */}
-      <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
-        <h1 className="text-2xl font-extrabold text-orange-500">Happy Tails 🐾</h1>
-        <ul className="hidden md:flex gap-6 text-gray-600">
-          <li><a href="#home" className="hover:text-orange-500">Home</a></li>
-          <li><a href="#shop" className="hover:text-orange-500">Shop</a></li>
-          <li><a href="#testimonials" className="hover:text-orange-500">Reviews</a></li>
-          <li><a href="#contact" className="hover:text-orange-500">Contact</a></li>
-        </ul>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-full transition text-sm">
-          🛒 Shop Now
-        </button>
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-amber-50 via-rose-50 to-pink-50 shadow-md border-b border-rose-100 backdrop-blur-md">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 lg:px-12">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <Image
+            src="/images/Paw.jpg"
+            alt="Happy Tails Logo"
+            width={45}
+            height={45}
+            className="rounded-full object-cover ring-2 ring-rose-400"
+          />
+          <p className="text-xl font-extrabold text-rose-700 tracking-tight">
+            Happy <span className="text-amber-600">Tails</span>
+          </p>
+        </div>
+
+        {/* Centered Nav for large screens */}
+        <div className="hidden lg:flex items-center gap-x-10">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative font-medium text-gray-800 transition duration-200 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-rose-500 hover:after:w-full after:transition-all ${
+                  isActive
+                    ? "text-rose-600 after:w-full"
+                    : "hover:text-rose-500"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Shop Now Button (Desktop only) */}
+        <div className="hidden lg:block">
+          <Link
+            href="/shop"
+            className="rounded-full bg-rose-600 px-5 py-2 text-sm font-semibold text-white hover:bg-rose-500 hover:shadow-md transition-all"
+          >
+            🛍️ Shop Now
+          </Link>
+        </div>
+
+        {/* Hamburger Button (Mobile) */}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-800 focus:outline-none p-2 rounded-md hover:bg-rose-100 transition"
+          >
+            {isOpen ? (
+              // Close icon
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              // Hamburger icon
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
       </nav>
 
-      {/* 🏠 Hero Section */}
-      <section id="home" className="flex flex-col items-center justify-center text-center py-20 px-6">
-        <h1 className="text-5xl font-extrabold text-orange-500 mb-4">
-          Welcome to Happy Tails 🐶
-        </h1>
-        <p className="max-w-2xl text-lg text-gray-600 mb-8">
-          Bringing love, joy, and wagging tails to your home! Explore our shop for
-          adorable pets and their favorite goodies.
-        </p>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full text-lg transition">
-          🛍️ Shop Now
-        </button>
-        <div className="mt-12 relative w-full max-w-4xl aspect-video">
-          <Image
-            src="/pets-hero.jpg"
-            alt="Happy pets"
-            fill
-            className="object-cover rounded-2xl shadow-lg"
-          />
-        </div>
-      </section>
-
-      {/* 🐕 Featured Pets / Products */}
-      <section id="shop" className="py-20 px-6 bg-white text-center">
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">
-          Featured Pets & Products
-        </h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-          {[
-            { name: "Golden Retriever", img: "/golden.jpg", price: "₱25,000" },
-            { name: "Persian Cat", img: "/persian.jpg", price: "₱18,000" },
-            { name: "Pet Bed Deluxe", img: "/pet-bed.jpg", price: "₱1,200" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="bg-orange-50 rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+      {/* Mobile Dropdown Menu */}
+      <div
+        className={`lg:hidden bg-white border-t border-gray-200 transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col p-4 space-y-2">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={`block px-4 py-2 rounded-md text-base font-semibold transition ${
+                pathname === link.href
+                  ? "text-rose-600 bg-rose-50"
+                  : "text-gray-800 hover:bg-gray-100 hover:text-rose-600"
+              }`}
             >
-              <div className="relative h-56 w-full">
-                <Image
-                  src={item.img}
-                  alt={item.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">{item.name}</h3>
-                <p className="text-orange-600 font-medium">{item.price}</p>
-              </div>
-            </div>
+              {link.label}
+            </Link>
           ))}
-        </div>
-      </section>
 
-      {/* 💬 Testimonials */}
-      <section id="testimonials" className="py-20 px-6 bg-orange-50 text-center">
-        <h2 className="text-4xl font-bold text-orange-500 mb-10">
-          What Our Customers Say 💬
-        </h2>
-        <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-          {[
-            {
-              name: "Anna R.",
-              text: "My puppy loves everything from Happy Tails! Great service and quality.",
-            },
-            {
-              name: "Mark D.",
-              text: "Adopted my cat here — the team was so kind and helpful. Highly recommend!",
-            },
-            {
-              name: "Joyce P.",
-              text: "Fast delivery and super cute packaging. My pets are happy, and so am I!",
-            },
-          ].map((t, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition"
-            >
-              <p className="text-gray-600 mb-4">“{t.text}”</p>
-              <h4 className="font-semibold text-orange-600">— {t.name}</h4>
-            </div>
-          ))}
+          {/* Shop Button for Mobile */}
+          <Link
+            href="/shop"
+            onClick={() => setIsOpen(false)}
+            className="mt-2 block w-full text-center rounded-full bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-rose-500 hover:shadow transition-all"
+          >
+            🐾 Shop Now
+          </Link>
         </div>
-      </section>
-
-      {/* 📞 Contact / Visit Us */}
-      <section id="contact" className="py-20 px-6 text-center bg-white">
-        <h2 className="text-4xl font-bold text-orange-500 mb-8">Visit Us 🏡</h2>
-        <p className="text-gray-600 mb-6">
-          Come meet our furry friends or send us a message below!
-        </p>
-        <div className="max-w-md mx-auto text-left bg-orange-50 p-8 rounded-2xl shadow-md">
-          <form className="flex flex-col gap-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="border rounded-lg p-3 outline-orange-400"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="border rounded-lg p-3 outline-orange-400"
-            />
-            <textarea
-              placeholder="Your Message"
-              rows={4}
-              className="border rounded-lg p-3 outline-orange-400"
-            ></textarea>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full transition">
-              Send Message
-            </button>
-          </form>
-        </div>
-        <p className="mt-6 text-gray-500">📍 123 Pet Street, Quezon City</p>
-        <p className="text-gray-500">📞 0912 345 6789</p>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-6 text-center text-gray-500 bg-orange-100">
-        © {new Date().getFullYear()} Happy Tails. All rights reserved.
-      </footer>
-    </main>
+      </div>
+    </header>
   );
 }
