@@ -3,6 +3,26 @@
 import Image from "next/image";
 import React from "react";
 
+const PawPrintIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <circle cx="11" cy="4" r="2" />
+    <circle cx="18" cy="8" r="2" />
+    <circle cx="20" cy="16" r="2" />
+    <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
+  </svg>
+);
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 lg:px-16">
@@ -50,31 +70,52 @@ export default function Hero() {
         </div>
 
         {/* Right Content - Hero Image */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center mt-12 lg:mt-0">
-          <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl flex flex-col overflow-hidden relative min-h-[500px] p-4">
-            <div className="absolute top-0 left-0 right-0 p-4 flex items-center space-x-2 bg-white rounded-t-xl z-20">
-              <span className="w-3 h-3 bg-gray-300 rounded-full"></span>
-              <span className="w-3 h-3 bg-gray-300 rounded-full"></span>
-              <span className="w-3 h-3 bg-gray-300 rounded-full"></span>
-            </div>
+        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end mt-12 lg:mt-0 relative lg:min-h-screen p-4 lg:p-8">
+      
+      {/* The Dashboard Card Container: Key change is lg:w-full to take 100% of the available half-width space. */}
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl lg:max-w-none flex flex-col overflow-hidden relative h-full min-h-[500px] lg:h-[calc(100vh-64px)] lg:w-full"> 
+        
+        {/* Absolute Image Container: Fills the entire inner space of the card (z-0) */}
+        <div className="absolute inset-0 z-0">
+          {/* Using standard HTML img tag */}
+          <img
+            src="/images/Happy-Tails-Hero.jpg"
+            alt="Compassionate Veterinary Care Hero"
+            className="w-full h-full object-cover rounded-2xl" 
+          />
+          {/* Optional: Add a subtle overlay for better text contrast */}
+          <div className="absolute inset-0 bg-indigo-900 opacity-20 rounded-2xl"></div>
+        </div>
 
-            <div className="absolute top-12 right-0 left-0 h-12 border-b border-gray-100 px-6 flex items-center justify-between z-10 bg-white">
-                <h2 className="text-xl font-bold text-gray-900">
-                  Compassionate Veterinary Care for Your Pet
-                </h2>
-              </div>
-
-              <div className="p-6 flex-grow overflow-hidden flex items-center justify-center">
-                <Image
-                  src="/images/Happy-Tails-Hero.jpg"
-                  alt="Hero Image"
-                  width={500}
-                  height={400}
-                  className="object-cover rounded-lg w-full h-full"
-                />
-              </div>
-            </div>
+        {/* Header Bar Simulation (z-20) */}
+        <div className="relative z-20 p-4 flex items-center justify-between bg-white/90 backdrop-blur-sm rounded-t-2xl border-b border-gray-200">
+          {/* Traffic Light Dots */}
+          <div className="flex items-center space-x-2">
+            <span className="w-3 h-3 bg-red-400 rounded-full"></span>
+            <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
+            <span className="w-3 h-3 bg-green-400 rounded-full"></span>
           </div>
+          {/* Title */}
+          <h2 className="text-base font-semibold text-gray-800 flex items-center space-x-1">
+            <PawPrintIcon className="w-4 h-4 text-indigo-600" />
+            <span>Pet Health Care</span>
+          </h2>
+        </div>
+        
+        {/* Content/Interaction Layer */}
+        <div className="relative z-10 p-6 flex-grow flex items-end justify-start">
+            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl max-w-sm">
+                <h3 className="text-xl font-extrabold text-indigo-900 mb-2">
+                    Compassionate Veterinary Care
+                </h3>
+                <p className="text-gray-700">
+                    Your pet's health insights, appointment schedule, and vaccination history are always secure and accessible.
+                </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
         </div>
     </section>
   );

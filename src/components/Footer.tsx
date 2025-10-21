@@ -45,8 +45,8 @@ export default function Footer() {
             <a href="#services" className="hover:text-[#b7791f] transition">
               Services
             </a>
-            <a href="#about" className="hover:text-[#b7791f] transition">
-              About
+            <a href="#pets" className="hover:text-[#b7791f] transition">
+              Pets
             </a>
             <a href="#contact" className="hover:text-[#b7791f] transition">
               Contact
