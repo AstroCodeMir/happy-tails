@@ -130,41 +130,41 @@ const testimonials = [
   {
     rating: "4.9",
     quote:
-      "Pagedone has made it possible for me to stay on top of my portfolio and make informed decisions quickly and easily.",
-    img: "https://pagedone.io/asset/uploads/1696229969.png",
+      "The veterinary team at Happy Tails is knowledgeable and caring. They helped us quickly diagnose our cat's issue and provided a clear treatment plan.",
+    img: "/images/Jane.jpg",
     name: "Jane D",
-    role: "CEO",
+    role: "Pet Owner & CEO",
   },
   {
     rating: "5.0",
     quote:
-      "Using Pagedone simplified our workflow. I can now manage all my projects efficiently and the interface is just beautiful!",
-    img: "https://pagedone.io/asset/uploads/1696229999.png",
+      "Shopping at the pet store is so easy. They always stock the premium food and best toys we need, and the staff is wonderful. A truly joyful experience!",
+    img: "/images/Harsh.jpg",
     name: "Harsh M",
-    role: "Product Designer",
+    role: "Dog Dad & Product Designer",
   },
   {
     rating: "4.8",
     quote:
-      "This platform truly elevated our client presentations. The design tools are intuitive and make everything look professional.",
-    img: "https://pagedone.io/asset/uploads/1696230030.png",
+      "The grooming service here is unparalleled. Max always comes home looking and smelling amazing. They treat him like family every time.",
+    img: "/images/Alex.jpg",
     name: "Alex T",
-    role: "UI Developer",
+    role: "Client & UI Developer",
   },
   {
     rating: "5.0",
     quote:
-      "From onboarding to daily use, the experience has been seamless. It’s truly built with users in mind.",
-    img: "https://pagedone.io/asset/uploads/1696230065.png",
+      "From our first puppy visit to routine checkups, the experience at the clinic has been seamless. It’s clear they genuinely love animals.",
+    img: "/images/Maria.jpg",
     name: "Maria L",
-    role: "Marketing Head",
+    role: "Happy Tails Customer",
   },
   {
     rating: "4.7",
     quote:
-      "Pagedone has helped our team stay organized and deliver projects faster. The customer support is amazing too!",
-    img: "https://pagedone.io/asset/uploads/1696230097.png",
+      "Happy Tails helped us transition our new rescue with the right supplies and advice. The staff's knowledge and support were invaluable.",
+    img: "/images/Chris.jpg",
     name: "Chris B",
-    role: "Operations Manager",
+    role: "Operations Manager & Cat Lover",
   },
 ];
