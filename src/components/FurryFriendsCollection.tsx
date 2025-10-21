@@ -59,7 +59,7 @@ const pets = [
 
 export default function FurryFriendsCollection() {
   return (
-    <div className="bg-gray-100 min-h-screen py-10">
+    <div id="pets" className="bg-gray-100 min-h-screen py-10">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">

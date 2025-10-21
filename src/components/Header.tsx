@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Header() {
-  const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState("/");
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -32,14 +32,16 @@ export default function Header() {
             </h1>
           </div>
 
-          {/* Centered Navigation */}
+          {/* Navigation */}
           <div className="flex-1 flex justify-center space-x-10">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = activeLink === link.href;
+
               return (
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => setActiveLink(link.href)}
                   className={`relative text-base font-medium transition duration-200 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-rose-500 hover:after:w-full after:transition-all ${
                     isActive
                       ? "text-rose-600 after:w-full font-semibold"
