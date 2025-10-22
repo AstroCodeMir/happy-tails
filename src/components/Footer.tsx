@@ -39,7 +39,7 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div className="flex flex-wrap gap-4 justify-center md:justify-end text-white">
-            <a href="#home" className="hover:text-[#b7791f] transition">
+            <a href="/" className="hover:text-[#b7791f] transition">
               Home
             </a>
             <a href="#services" className="hover:text-[#b7791f] transition">
