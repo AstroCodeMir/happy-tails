@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 
 const PawPrintIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -25,7 +24,7 @@ const PawPrintIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 lg:px-16">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-32 lg:px-16">
       {/* Background Image with Gradient Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
