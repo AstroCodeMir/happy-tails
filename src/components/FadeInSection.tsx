@@ -1,27 +1,37 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, Variants } from "framer-motion";
+import React from "react";
+
+const fadeInVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
 
 interface FadeInSectionProps {
-  children: ReactNode;
-  delay?: number; // optional delay for staggered animations
-  yOffset?: number; // optional for customizing vertical offset
+  children: React.ReactNode;
+  className?: string;
 }
 
-export default function FadeInSection({
-  children,
-  delay = 0,
-  yOffset = 40,
-}: FadeInSectionProps) {
+const FadeInSection: React.FC<FadeInSectionProps> = ({ children, className }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      className={className}
+      variants={fadeInVariants}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
       {children}
     </motion.div>
   );
-}
+};
+
+export default FadeInSection;
