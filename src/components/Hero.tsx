@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import FadeInSection from "@/components/FadeInSection";
 
 const PawPrintIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg
@@ -24,7 +25,7 @@ const PawPrintIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-32 lg:px-16">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-[110px] md:pt-[100px] lg:pt-[90px] lg:px-10">
       {/* Background Image with Gradient Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -37,21 +38,25 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-16">
         {/* Left Content */}
         <div className="space-y-8 lg:pr-12 text-center lg:text-left">
+              <FadeInSection>
           <span className="inline-flex items-center px-3 py-1 text-sm font-semibold text-indigo-700 bg-indigo-100 rounded-full">
             #1 Petshop
           </span>
-
+              </FadeInSection>
           <header className="space-y-4">
+            <FadeInSection delay={0.2}>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">
               Your pet <br />
               deserves the <br />
               best care
             </h1>
+            
             <p className="text-lg text-white max-w-lg">
               From grooming to daycare, we provide professional services tailored to your furry friends.
             </p>
+            </FadeInSection>
           </header>
-
+          <FadeInSection>
           <form className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 max-w-lg mx-auto lg:mx-0">
             <input
               type="email"
@@ -66,6 +71,7 @@ export default function Hero() {
               Book Now
             </button>
           </form>
+          </FadeInSection>
         </div>
 
         {/* Right Content - Hero Image */}
