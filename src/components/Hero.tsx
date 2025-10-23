@@ -25,7 +25,7 @@ const PawPrintIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-[110px] md:pt-[100px] lg:pt-[90px] lg:px-10">
+    <section className="relative min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-12 pt-28 md:pt-16 lg:pt-0 ">
       {/* Background Image with Gradient Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -35,9 +35,9 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-16">
+      <div className="relative z-10 max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
         {/* Left Content */}
-        <div className="space-y-8 lg:pr-12 text-center lg:text-left">
+        <div className="space-y-8 lg:pr-8 text-center lg:text-left">
               <FadeInSection>
           <span className="inline-flex items-center px-3 py-1 text-sm font-semibold text-indigo-700 bg-indigo-100 rounded-full">
             #1 Petshop
@@ -73,10 +73,10 @@ export default function Hero() {
           </form>
           </FadeInSection>
         </div>
-
+       
         {/* Right Content - Hero Image */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end mt-12 lg:mt-0 relative lg:min-h-screen p-4 lg:p-8">
-      
+        <div className=" w-full max-w-md lg:max-w-lg overflow-hidden relative h-full min-h-[400px] lg:min-h-[500px]">
+      <FadeInSection>
       {/* The Dashboard Card Container: Key change is lg:w-full to take 100% of the available half-width space. */}
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl lg:max-w-none flex flex-col overflow-hidden relative h-full min-h-[500px] lg:h-[calc(100vh-64px)] lg:w-full"> 
         
@@ -91,6 +91,7 @@ export default function Hero() {
           {/* Optional: Add a subtle overlay for better text contrast */}
           <div className="absolute inset-0 bg-indigo-900 opacity-20 rounded-2xl"></div>
         </div>
+        
 
         {/* Header Bar Simulation (z-20) */}
         <div className="relative z-20 p-4 flex items-center justify-between bg-white/90 backdrop-blur-sm rounded-t-2xl border-b border-gray-200">
@@ -120,8 +121,10 @@ export default function Hero() {
         </div>
 
       </div>
+     </FadeInSection>
     </div>
         </div>
+        
     </section>
   );
 }
