@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
@@ -39,18 +40,18 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div className="flex flex-wrap gap-4 justify-center md:justify-end text-white">
-            <a href="/" className="hover:text-[#b7791f] transition">
+            <Link href="/" className="hover:text-[#b7791f] transition">
               Home
-            </a>
-            <a href="#services" className="hover:text-[#b7791f] transition">
+            </Link>
+            <Link href="#services" className="hover:text-[#b7791f] transition">
               Services
-            </a>
-            <a href="#pets" className="hover:text-[#b7791f] transition">
+            </Link>
+            <Link href="#pets" className="hover:text-[#b7791f] transition">
               Pets
-            </a>
-            <a href="#contact" className="hover:text-[#b7791f] transition">
+            </Link>
+            <Link href="#contact" className="hover:text-[#b7791f] transition">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -74,8 +75,13 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex justify-center md:justify-end gap-4 mt-2 md:mt-0 text-lg">
-            {/* Simple SVG social icons */}
-            <a href="#" className="hover:text-[#b7791f] transition">
+            {/* External links remain <a> */}
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#b7791f] transition"
+            >
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -84,7 +90,12 @@ export default function Footer() {
                 <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24h11.49v-9.294H9.692v-3.622h3.123V8.413c0-3.1 1.894-4.788 4.66-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.324V1.325C24 .593 23.407 0 22.675 0z" />
               </svg>
             </a>
-            <a href="#" className="hover:text-[#b7791f] transition">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#b7791f] transition"
+            >
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -95,7 +106,12 @@ export default function Footer() {
                 <circle cx="18.406" cy="5.594" r="1.44" />
               </svg>
             </a>
-            <a href="#" className="hover:text-[#b7791f] transition">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#b7791f] transition"
+            >
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
