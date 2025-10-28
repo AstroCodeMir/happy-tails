@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // ✅ icons from lucide-react
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState("/");
@@ -18,7 +18,7 @@ export default function Header() {
 
   const handleClick = (href: string) => {
     setActiveLink(href);
-    setMenuOpen(false); // close menu after clicking
+    setMenuOpen(false);
   };
 
   return (
@@ -42,8 +42,21 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-1 justify-center space-x-10">
             {navLinks.map((link) => {
+              const isAnchor = link.href.startsWith("#");
               const isActive = activeLink === link.href;
-              return (
+
+              return isAnchor ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => handleClick(link.href)}
+                  className={`relative text-base font-medium transition duration-200 hover:text-rose-500 ${
+                    isActive ? "text-rose-600 font-semibold" : "text-gray-800"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ) : (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -60,7 +73,7 @@ export default function Header() {
             })}
           </div>
 
-          {/* Shop Button (Desktop) */}
+          {/* Shop Button */}
           <div className="hidden md:block">
             <Link
               href="/shop"
@@ -83,8 +96,21 @@ export default function Header() {
         {menuOpen && (
           <div className="md:hidden flex flex-col items-center bg-rose-50 py-4 space-y-4 rounded-b-2xl shadow-md mb-8">
             {navLinks.map((link) => {
+              const isAnchor = link.href.startsWith("#");
               const isActive = activeLink === link.href;
-              return (
+
+              return isAnchor ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => handleClick(link.href)}
+                  className={`text-base font-medium ${
+                    isActive ? "text-rose-600 font-semibold" : "text-gray-800"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ) : (
                 <Link
                   key={link.href}
                   href={link.href}
