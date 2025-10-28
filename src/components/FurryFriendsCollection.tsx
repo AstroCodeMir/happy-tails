@@ -34,18 +34,18 @@ export default function FurryFriendsCollection() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {pets.map((pet, index) => (
             <div
-              key={index}
+              key={pet.name}
               className="relative w-full h-48 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105"
             >
               <Image
                 src={pet.image}
                 alt={pet.alt}
                 fill
-                priority={index < 5} // Preload top images for better LCP
+                priority={index < 5} // preload top images for better LCP
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 20vw"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-75 p-2">
+              <div className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-70 p-2">
                 <p className="text-white text-sm font-semibold text-center">
                   {pet.name}
                 </p>
