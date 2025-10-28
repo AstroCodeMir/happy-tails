@@ -21,6 +21,18 @@ export default function Header() {
     setMenuOpen(false);
   };
 
+  // Smooth scroll for internal sections
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    handleClick(href);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-rose-50 via-amber-50 to-pink-50 shadow-md border-b border-rose-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -33,6 +45,7 @@ export default function Header() {
               width={45}
               height={45}
               className="rounded-full object-cover ring-2 ring-rose-400"
+              priority
             />
             <h1 className="text-2xl font-extrabold text-gray-900 tracking-tight">
               Happy <span className="text-rose-600">Tails</span>
@@ -40,27 +53,16 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex flex-1 justify-center space-x-10">
+          <nav className="hidden md:flex flex-1 justify-center space-x-10">
             {navLinks.map((link) => {
-              const isAnchor = link.href.startsWith("#");
               const isActive = activeLink === link.href;
 
-              return isAnchor ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => handleClick(link.href)}
-                  className={`relative text-base font-medium transition duration-200 hover:text-rose-500 ${
-                    isActive ? "text-rose-600 font-semibold" : "text-gray-800"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ) : (
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => handleClick(link.href)}
+                  scroll={false}
+                  onClick={(e) => scrollToSection(e, link.href)}
                   className={`relative text-base font-medium transition duration-200 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-rose-500 hover:after:w-full after:transition-all ${
                     isActive
                       ? "text-rose-600 after:w-full font-semibold"
@@ -71,9 +73,9 @@ export default function Header() {
                 </Link>
               );
             })}
-          </div>
+          </nav>
 
-          {/* Shop Button */}
+          {/* Shop Button (Desktop) */}
           <div className="hidden md:block">
             <Link
               href="/shop"
@@ -96,25 +98,14 @@ export default function Header() {
         {menuOpen && (
           <div className="md:hidden flex flex-col items-center bg-rose-50 py-4 space-y-4 rounded-b-2xl shadow-md mb-8">
             {navLinks.map((link) => {
-              const isAnchor = link.href.startsWith("#");
               const isActive = activeLink === link.href;
 
-              return isAnchor ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => handleClick(link.href)}
-                  className={`text-base font-medium ${
-                    isActive ? "text-rose-600 font-semibold" : "text-gray-800"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ) : (
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => handleClick(link.href)}
+                  scroll={false}
+                  onClick={(e) => scrollToSection(e, link.href)}
                   className={`text-base font-medium ${
                     isActive ? "text-rose-600 font-semibold" : "text-gray-800"
                   }`}
