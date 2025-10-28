@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -97,10 +98,12 @@ function TestimonialCard({
         {quote}
       </p>
       <div className="flex items-center gap-5 border-t border-amber-100 pt-5">
-        <img
-          className="rounded-full h-10 w-10 object-cover"
+        <Image
+          className="rounded-full object-cover"
           src={img}
           alt={name}
+          width={40}
+          height={40}
         />
         <div>
           <h5 className="text-amber-900 font-semibold mb-1">{name}</h5>
@@ -130,7 +133,7 @@ const testimonials = [
   {
     rating: "4.9",
     quote:
-      "The veterinary team at Happy Tails is knowledgeable and caring. They helped us quickly diagnose our cat&apos;s issue and provided a clear treatment plan.",
+      "The veterinary team at Happy Tails is knowledgeable and caring. They helped us quickly diagnose our cat's issue and provided a clear treatment plan.",
     img: "/images/Jane.jpg",
     name: "Jane D",
     role: "Pet Owner & CEO",
@@ -154,7 +157,7 @@ const testimonials = [
   {
     rating: "5.0",
     quote:
-      "From our first puppy visit to routine checkups, the experience at the clinic has been seamless. It&apos;s clear they genuinely love animals.",
+      "From our first puppy visit to routine checkups, the experience at the clinic has been seamless. It's clear they genuinely love animals.",
     img: "/images/Maria.jpg",
     name: "Maria L",
     role: "Happy Tails Customer",
@@ -162,7 +165,7 @@ const testimonials = [
   {
     rating: "4.7",
     quote:
-      "Happy Tails helped us transition our new rescue with the right supplies and advice. The staff&apos;s knowledge and support were invaluable.",
+      "Happy Tails helped us transition our new rescue with the right supplies and advice. The staff's knowledge and support were invaluable.",
     img: "/images/Chris.jpg",
     name: "Chris B",
     role: "Operations Manager & Cat Lover",
