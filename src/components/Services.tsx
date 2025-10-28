@@ -45,7 +45,7 @@ export default function Services() {
               Pet Daycare
             </h4>
             <p className="text-gray-600">
-              Safe and fun daycare environment for your pets while you're away.
+              Safe and fun daycare environment for your pets while you&apos;re away.
             </p>
            
           </div>

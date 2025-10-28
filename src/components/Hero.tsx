@@ -120,7 +120,7 @@ export default function Hero() {
                     Compassionate Veterinary Care
                 </h3>
                 <p className="text-gray-700">
-                    Your pet's health insights, appointment schedule, and vaccination history are always secure and accessible.
+                    Your pet&apos;s health insights, appointment schedule, and vaccination history are always secure and accessible.
                 </p>
             </div>
         </div>

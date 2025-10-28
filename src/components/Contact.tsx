@@ -25,7 +25,7 @@ export default function ContactUs() {
             <header className="space-y-2">
               <h1 className="text-4xl font-bold text-gray-900">Contact Us</h1>
               <p className="text-gray-600">
-                We're here to assist you! Whether you have questions, feedback, or inquiries, our team is ready to help.
+                We&apos;re here to assist you! Whether you have questions, feedback, or inquiries, our team is ready to help.
               </p>
             </header>
 
